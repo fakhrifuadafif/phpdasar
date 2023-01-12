@@ -29,7 +29,7 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
         <tr>
             <td> <?= $i; ?></td>
             <td>
-                <a href="">ubah</a>
+                <a href="ubah.php?id=<?= $row["id"]; ?>" onclick="return confirm('yakin')">ubah</a>
                 <a href="hapus.php?id=<?= $row["id"]; ?>"onclick=" return confirm('yakin!')">hapus</a>
             </td>
             <td> <img src="gambar/<?php echo $row["gambar"];?>"witdh= "100"height="100"></td>
