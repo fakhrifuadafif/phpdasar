@@ -19,11 +19,11 @@ function tambah($data){
     $nim = htmlspecialchars($data["nim"]);
     $email = htmlspecialchars ($data["email"]);
     $jurusan = htmlspecialchars ($data["jurusan"]);
+    
 
-    //upload gambar
-    $gambar =upload();
-
-    if (!gambar) {
+    //UPLOAD GAMBAR
+    $gambar = upload ();
+    if (!$gambar) {
         return false;
     }
 
@@ -35,8 +35,54 @@ function tambah($data){
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);
-
+ 
 }
+  
+function upload() {
+    
+
+    $namaFile = $_FILES ['gambar']['name'];
+    $ukuranFile = $_FILES ['gambar']['size'];
+    $error = $_FILES ['gambar']['error'];
+    $tmpName = $_FILES ['gambar']['tmp_name'];
+
+    // cek apakah tidak ada gambar yang di upload
+    if ( $error === 4 ) {
+    echo "<script>
+        alert('pilih gambar terlebih dahulu!');
+    </script>";
+    return false; 
+}
+//  CEK apakah yang di upload gambar
+
+$ekstensiGambarValid = ['jpg','jpeg','png'];
+$ekstensiGambar = explode('.',$namaFile);
+$ekstensiGambar = strtolower(end($ekstensiGambar));
+if ( !in_array($ekstensiGambar, $ekstensiGambarValid)){
+        echo "<script>
+            alert ('yang anda upload bukan gambar!');
+            </script>";
+        return false;
+}
+if ($ukuranFile > 1000000){
+    echo "<script>
+        alert ('ukuran terlalu besar!');
+        </script>";
+        return false;
+}
+
+
+// lolos pengecekan, gambar siap upload
+// generate nama gambar baru
+
+$namaFileBaru = uniqid();
+$namaFileBaru .= '.';
+$namaFileBaru .= $ekstensiGambar;
+
+
+move_uploaded_file( $tmpName , 'gambar/'.$namaFileBaru);
+ return $namaFileBaru;
+} 
 
 
 function hapus($id) {
@@ -47,12 +93,22 @@ function hapus($id) {
 
 function ubah ($data){ 
 global $conn;
+
 $id = $data["id"];
 $nama = htmlspecialchars($data["nama"]);
 $nim = htmlspecialchars($data["nim"]);
 $email = htmlspecialchars ($data["email"]);
 $jurusan = htmlspecialchars ($data["jurusan"]);
-$gambar = htmlspecialchars ($data["gambar"]);
+// $gambarLama = htmlspecialchars($data["gambarLama"]);
+$gambar = htmlspecialchars($data["gambar"]);
+
+// cek apakah user pililh gambar baru atau tidak
+
+// if ($_FILES ['gambar']['error'] === 4){
+//     $gambar = $gambarLama;
+// } else {
+//     $gambar = upload ();
+// }
 
 $query = "UPDATE mahasiswa SET
             nim= '$nim',
@@ -74,5 +130,7 @@ function cari($keyword) {
                                             jurusan LIKE '%$keyword%'";
 
     return query ($query);
+
+  
 }
-?>
+?> 
