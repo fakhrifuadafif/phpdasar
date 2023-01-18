@@ -29,7 +29,7 @@ if (isset($_POST["register"])){
 
 <h1>Halaman registrasi</h1>
 
-<form action="" method="post"></form>
+<form action="" method="post">
 
     <ul>
         <li>
@@ -48,12 +48,12 @@ if (isset($_POST["register"])){
         </li>
       
         <li>
-                <button type="submit" name="register" > register! </button>
-
+            <button type="submit" name="register" >register</button>
         </li>
 
+     
 
     </ul>
-
+    </form>
 </body>
 </html>
