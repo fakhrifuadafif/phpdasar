@@ -1,7 +1,14 @@
 <?php  
+session_start();
+
+
+if (isset($_SESSION["login"])){
+    header("Location: index.php");
+    exit;
+}
 
 require 'function.php';
-if (isset($_POST["Login"])) {
+if (isset($_POST["login"])) {
 
     $username = $_POST["username"];
     $password = $_POST["password"];
@@ -13,6 +20,10 @@ if (isset($_POST["Login"])) {
         // cek password
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row["password"])) {
+
+            // set session
+            $_SESSION["login"] = true;
+
             header("Location: index.php");
             exit;
         }
@@ -46,7 +57,12 @@ if (isset($_POST["Login"])) {
         </li>
 
         <li>
-            <button type="submit" name="Login">Login</button>
+            <button type="submit" name="login">Login</button>
+        </li>
+
+        <li>
+            Belum Punya akun?
+            <a href="registrasi.php">Registrasi</a>
         </li>
 
     </form>
