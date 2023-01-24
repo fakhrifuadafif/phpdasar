@@ -21,6 +21,15 @@ if (isset($_POST["cari"])) {
     <script src="js/script.js"></script>
    
 <title>Halaman Admin</title>
+<style>
+    .loading { 
+        width: 30px;
+        position: absolute;
+        top:140px;
+        z-index: -1;
+        display: none;
+    }
+</style>
 </head>
 <body>
     <a href="logout.php">Logout</a>
@@ -33,7 +42,10 @@ if (isset($_POST["cari"])) {
         <input type="text" name="keyword" size="50" autofocus placeholder="masukkan keyword pencarian"
         autocomplete="off" id="keyword">
         <button type= "submit" name = "cari" id="tombol-cari"> Cari! </button>
+        <img src="gambar/loading.gif" class="loading" alt="">
     </form>
+    <br>
+    <br>
     
     <div id="container">
     <table border="1" cellpadding="10" cellspacing="0">
