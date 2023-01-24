@@ -64,21 +64,11 @@ if (isset($_POST["login"])) {
 
 <!DOCTYPE html>
 <html>
-
-
- </style>
 <head>
 <title>Halaman Login</title>
-
-<link rel="stylesheet" type="css/text" href="style.css">
-
-<div class="head">
-
-<h1> Halaman Login</h1>
 </head>
-</div>
-<div class="body">
-    
+<body>
+    <h1> Halaman Login</h1>
 
     <?php if (isset($error)) :?>
         <p style="color: red; font-style: italic" >username /password salah!</p>
@@ -99,7 +89,7 @@ if (isset($_POST["login"])) {
         </li>
 
         <li>
-            <button type="submit" name="login"> Login </button>
+            <button type="submit" name="login">Login</button>
         </li>
 
         <li>
@@ -109,13 +99,4 @@ if (isset($_POST["login"])) {
 
     </form>
 </body>
-</div>
-
-<div class="footer">
-    data mahasiswa
-    <br>
-    copyright @2023
-</div>
-
-
 </html>

@@ -1,0 +1,60 @@
+
+/* Global Styles */
+.body {
+background-color: white;
+color: black;
+font-family: Arial, sans-serif;
+text-align: center;
+padding: 50px;
+}
+li {
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+/* Header Styles */
+.head {
+background-color: lightblue;
+color: darkgray;
+padding: 20px;
+text-align: center;
+text-shadow: wheat;
+box-shadow: wheat;
+}
+
+/* Navigation Styles */
+.nav {
+background-color: blue;
+color: white;
+padding: 10px;
+}
+.nav a {
+color: white;
+text-decoration: none;
+margin-right: 10px;
+}
+
+/* Content Styles */
+.section {
+padding: 20px;
+}
+
+/* Footer Styles */
+.footer {
+background-color: lightblue;
+color: darkgray;
+padding: 10px;
+text-align: center;
+text-shadow: wheat;
+
+}
+
+button {
+width: 200px;
+height: 50px;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+background-color: lightblue;
+color: darkgray;
+font: bold;
+text-shadow: wheat;
+outline-color: white;
+}
