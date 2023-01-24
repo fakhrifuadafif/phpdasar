@@ -64,11 +64,78 @@ if (isset($_POST["login"])) {
 
 <!DOCTYPE html>
 <html>
+
+<style>
+
+    /* Global Styles */
+.body {
+  background-color: white;
+  color: black;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 50px;
+}
+li {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+/* Header Styles */
+.head {
+  background-color: lightblue;
+  color: darkgray;
+  padding: 20px;
+  text-align: center;
+  text-shadow: wheat;
+    box-shadow: wheat;
+}
+
+/* Navigation Styles */
+.nav {
+  background-color: blue;
+  color: white;
+  padding: 10px;
+}
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+/* Content Styles */
+.section {
+  padding: 20px;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: lightblue;
+  color: darkgray;
+  padding: 10px;
+  text-align: center;
+  text-shadow: wheat;
+
+}
+
+button {
+    width: 200px;
+    height: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: lightblue;
+    color: darkgray;
+    font: bold;
+    text-shadow: wheat;
+    outline-color: white;
+}
+
+ </style>
 <head>
 <title>Halaman Login</title>
+<div class="head">
+<h1> Halaman Login</h1>
 </head>
-<body>
-    <h1> Halaman Login</h1>
+</div>
+<div class="body">
+    
 
     <?php if (isset($error)) :?>
         <p style="color: red; font-style: italic" >username /password salah!</p>
@@ -89,7 +156,7 @@ if (isset($_POST["login"])) {
         </li>
 
         <li>
-            <button type="submit" name="login">Login</button>
+            <button type="submit" name="login"> Login </button>
         </li>
 
         <li>
@@ -99,4 +166,13 @@ if (isset($_POST["login"])) {
 
     </form>
 </body>
+</div>
+
+<div class="footer">
+    data mahasiswa
+    <br>
+    copyright @2023
+</div>
+
+
 </html>
